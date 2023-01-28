@@ -20,14 +20,24 @@ export default function Search() {
     
       return (
         <div>
-          <form onSubmit={searchCity}>
-            <input
-              type="search"
-              placeholder="Enter a city/town"
-              onChange={showCity}
-            />
-            <input type="submit" value="Go" className="button" />
-          </form>
+          <form className="input-group">
+          <span className="input-group-text">Today in</span>
+          <input
+            type="search"
+            className="form-control"
+            placeholder="Search the location"
+            autocomplete="off"
+            onSubmit={searchCity}
+          />
+
+          <input type="submit" className="btn btn-outline-primary" value="OK" />
+          <input
+            type="submit"
+            className="btn btn-outline-secondary"
+            value="Your location"
+            onChange={showCity}
+          />
+        </form>
   
           <h2> {message}</h2>
          

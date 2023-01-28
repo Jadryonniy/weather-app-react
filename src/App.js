@@ -1,6 +1,7 @@
 import "./App.css";
 import MainForecast from "./MainForecast.js";
 import NextDayForecast from "./NextDayForecast";
+import Search from "./Search.js"
 
 export default function App() {
   return (
