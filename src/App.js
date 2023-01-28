@@ -35,7 +35,7 @@ export default function App() {
 
       <div className="autor">
         <a
-          href="https://github.com/Jadryonniy/Weather-app"
+          href="https://github.com/Jadryonniy/weather-app-react"
           target="_blank"
           rel="noreferrer"
           className="git_link"
