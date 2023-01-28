@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MainForecast from "./MainForecast.js";
+import NextDayForecast from "./NextDayForecast";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <form className="input-group">
+          <span className="input-group-text">Today in</span>
+          <input
+            type="search"
+            className="form-control"
+            placeholder="Search the location"
+            autocomplete="off"
+          />
+
+          <input type="submit" className="btn btn-outline-primary" value="OK" />
+          <input
+            type="submit"
+            className="btn btn-outline-secondary"
+            value="Your location"
+          />
+        </form>
+      </div>
+      <MainForecast />
+
+      <div className="row forecast">
+        <NextDayForecast />
+        <NextDayForecast />
+        <NextDayForecast />
+        <NextDayForecast />
+        <NextDayForecast />
+      </div>
+
+      <div className="autor">
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/Jadryonniy/Weather-app"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
+          className="git_link"
         >
-          Learn React
+          free app on github
         </a>
-      </header>
+        <span className="ms-2">coded by V.Koba</span>
+      </div>
     </div>
   );
 }
-
-export default App;
