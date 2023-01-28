@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 
-export default function MainForecast() {
+export default function MainForecast(props) {
   let WeatherData = {
-    cityName: "Lviv",
+    cityName: (props.city),
     wind: 9.2,
     date: "8.10 Saturday",
     humidity: 75,

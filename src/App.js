@@ -9,9 +9,6 @@ export default function App() {
       
         <Search />
       
-      
-      <MainForecast />
-
       <div className="row forecast">
         <NextDayForecast />
         <NextDayForecast />

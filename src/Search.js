@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import MainForecast from"./MainForecast.js"
 
 export default function Search() {
     let [message, setMessage] = useState(" ");
@@ -20,26 +21,29 @@ export default function Search() {
     
       return (
         <div>
-          <form className="input-group">
+          <form className="input-group" onSubmit={searchCity}>
           <span className="input-group-text">Today in</span>
           <input
             type="search"
             className="form-control"
             placeholder="Search the location"
             autocomplete="off"
-            onSubmit={searchCity}
+            onChange={showCity}
+            
           />
 
-          <input type="submit" className="btn btn-outline-primary" value="OK" />
+          <input type="submit" className="btn btn-outline-primary" value="OK"  />
           <input
             type="submit"
             className="btn btn-outline-secondary"
             value="Your location"
-            onChange={showCity}
+            
           />
         </form>
   
           <h2> {message}</h2>
+
+          <MainForecast city = {city}/>
          
         </div>
       );
