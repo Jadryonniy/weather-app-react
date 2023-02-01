@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import MainForecast from"./MainForecast.js"
+
 
 export default function Search() {
     let [message, setMessage] = useState(" ");
@@ -27,7 +27,7 @@ export default function Search() {
             type="search"
             className="form-control"
             placeholder="Search the location"
-            autocomplete="off"
+            autoComplete="off"
             onChange={showCity}
             
           />
@@ -43,7 +43,7 @@ export default function Search() {
   
           <h2> {message}</h2>
 
-          <MainForecast city = {city}/>
+          
          
         </div>
       );

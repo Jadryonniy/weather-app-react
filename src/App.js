@@ -1,5 +1,5 @@
 import "./App.css";
-
+// import MainForecast from"./MainForecast.js"
 import NextDayForecast from "./NextDayForecast";
 import Search from "./Search.js"
 
@@ -8,6 +8,7 @@ export default function App() {
     <div className="App">
       
         <Search />
+        {/* <MainForecast city = "Poltava" /> */}
       
       <div className="row forecast">
         <NextDayForecast />
