@@ -1,7 +1,10 @@
-import React from "react";
+import React,  { useState} from "react";
 import "./App.css";
+import axios from "axios";
+
 
 export default function MainForecast(props) {
+  
   let WeatherData = {
     cityName: (props.city),
     wind: 9.2,
