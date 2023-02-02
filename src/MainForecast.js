@@ -1,6 +1,7 @@
 import React,  { useState} from "react";
 import "./App.css";
 import axios from "axios";
+import FormattedDate from"./FormattedDate.js"
 
 
 export default function MainForecast(props) {
@@ -14,7 +15,7 @@ export default function MainForecast(props) {
     
     cityName: response.data.city,
     wind: response.data.wind.speed,
-    date: "02/02/2023",
+    date:  new Date(response.data.time * 1000),
     humidity: response.data.temperature.humidity,
     temperature: Math.round(response.data.temperature.current),
     description: response.data.condition.description,
@@ -33,7 +34,7 @@ if(ready){
       </div>
       <div className="col">
         <h2>{weatherData.cityName}</h2>
-        <h5>{weatherData.date}</h5>
+        <h5><FormattedDate date = {weatherData.date} /> </h5>
         <h2>
           
          {/* <span> <img> crs = {weatherData.weatherImg} alt={weatherData.weatherIcon} </img>  </span> */}
