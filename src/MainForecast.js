@@ -8,24 +8,25 @@ export default function MainForecast(props) {
   const[weatherData, setWeatherData] = useState({})
   
   function handleResponse(response){
+    console.log(response)
     setReady(true);
   setWeatherData({
     
-    cityName: response.data.name,
+    cityName: response.data.city,
     wind: response.data.wind.speed,
-    date: new Date(response.data.dt * 1000),
-    humidity: response.data.main.humidity,
-    temperature: response.data.main.temp,
-    description: response.data.weather[0].description,
-    weatherImg: response.data.weather[0].icon
+    date: "02/02/2023",
+    humidity: response.data.temperature.humidity,
+    temperature: Math.round(response.data.temperature.current),
+    description: response.data.condition.description,
+    weatherImg: response.data.condition.icon_url,
+    weatherIcon: response.data.condition.icon
   });
   
 }
 
-
-
 if(ready){
   return (
+    
     <div className="row mainWeather">
       <div className="col wind">
         <h4>💨 Wind {weatherData.wind} m/sec</h4>
@@ -34,10 +35,11 @@ if(ready){
         <h2>{weatherData.cityName}</h2>
         <h5>{weatherData.date}</h5>
         <h2>
-          <span>{weatherData.weatherImg}</span>
+          
+         {/* <span> <img> crs = {weatherData.weatherImg} alt={weatherData.weatherIcon} </img>  </span> */}
           <span>{weatherData.temperature}</span>
           <span className="unit">
-            <a href="/" class="active">
+            <a href="/" className="active">
               °C{" "}
             </a>
             <a href="/">(°F)</a>
@@ -49,14 +51,16 @@ if(ready){
         <h4>💧 Humidity {weatherData.humidity}%</h4>
       </div>
     </div>
+   
+    
   );
  
 }
 
   else{
-    let city = "Poltava"
-    const apiKey = "30e7329b2cf5d973330cfcc405308ca0";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    
+    const apiKey = "fb1a5abb4bafod018947tcd1dd70f5c3";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Goole&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading ...";
     

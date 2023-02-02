@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import MainForecast from "./MainForecast";
 
 
 export default function Search() {
@@ -42,6 +43,8 @@ export default function Search() {
         </form>
   
           <h2> {message}</h2>
+          
+          < MainForecast city = {city} />
 
           
          
