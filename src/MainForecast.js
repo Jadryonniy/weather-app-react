@@ -59,9 +59,10 @@ if(ready){
 }
 
   else{
+    let city =props.defaultCity
     
     const apiKey = "fb1a5abb4bafod018947tcd1dd70f5c3";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Goole&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading ...";
     

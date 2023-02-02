@@ -44,7 +44,7 @@ export default function Search() {
   
           <h2> {message}</h2>
           
-          < MainForecast city = {city} />
+          < MainForecast defaultCity = "Goole" city = {city} />
 
           
          
