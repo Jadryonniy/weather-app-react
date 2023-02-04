@@ -58,8 +58,8 @@ h2 {
 }
 .autor,
 .git_link {
-  color: black;
-  margin-top: 80px;
+  color: white;
+  margin-top: 300px;
   font-size: medium;
   font-weight: lighter;
 }
@@ -72,10 +72,5 @@ h2 {
 #celsius,
 #fahrenheit {
   color: rgb(52, 15, 185);
-}
-
-.active {
-  cursor: default;
-  text-decoration: none;
 }
 
