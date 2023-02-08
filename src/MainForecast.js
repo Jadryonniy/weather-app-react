@@ -2,6 +2,7 @@ import React,  { useState} from "react";
 import "./App.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo.js"
+import NextDayForecast from"./NextDayForecast.js"
 
 
   
@@ -11,6 +12,7 @@ import WeatherInfo from "./WeatherInfo.js"
   
 
   function handleResponse(response){
+    
     
       setWeatherData({
     ready:true,    
@@ -57,23 +59,26 @@ if(weatherData.ready){
       placeholder="Search the location"
       autoComplete="off"
       onChange={showCity}
-      autoFocus = "on"
+      
       
     />
 
-    <input type="submit" className="btn btn-outline-primary" value="OK"  />
-    <input
+    <input type="submit" className="btn btn-outline-primary " value="OK"  />
+    {/* <input
       type="submit"
       className="btn btn-outline-secondary"
       value="Your location"
       
-    />
+    /> */}
   
   </form>
  
  <WeatherInfo data={weatherData} />
-  
-    
+ <div className="row forecast">
+  <NextDayForecast data = {weatherData} />
+       
+      </div>
+
     
     </div>
    
@@ -83,7 +88,7 @@ if(weatherData.ready){
 }
 
   else{
-    search();   
+    // search();   
    
     return "Loading ...";
     

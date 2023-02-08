@@ -1,6 +1,6 @@
 import "./App.css";
 import MainForecast from"./MainForecast.js"
-import NextDayForecast from "./NextDayForecast";
+
 
 
 export default function App() {
@@ -10,13 +10,7 @@ export default function App() {
         
         <MainForecast defaultCity = "Poltava" />
       
-      <div className="row forecast">
-        <NextDayForecast />
-        <NextDayForecast />
-        <NextDayForecast />
-        <NextDayForecast />
-        <NextDayForecast />
-      </div>
+      
 
       <div className="autor">
         <a

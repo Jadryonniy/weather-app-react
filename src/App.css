@@ -26,7 +26,7 @@ h2 {
 }
 .input-group {
   box-shadow: 10px;
-  border: solid 2px;
+  border: solid 4px;
   border-color: blue;
   border-radius: 8px;
 }
@@ -34,7 +34,7 @@ h2 {
 .input-group-text {
   font-size: xx-large;
   font-weight: 600;
-  border-right: solid 2px;
+  border-right: solid 4px;
 }
 
 .form-control,
@@ -42,10 +42,11 @@ h2 {
   font-size: 20px;
   font-weight: 600;
   text-align: center;
+  padding: 6px 20px;
 }
 .btn {
   background-color: #fff;
-  border-left: solid 2px;
+  border-left: solid 4px;
 }
 .mainWeather {
   margin: 100px 0px 100px 0px;
