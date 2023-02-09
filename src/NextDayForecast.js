@@ -10,29 +10,33 @@ export default function NextDayForecast(props) {
  
   function handleResponse(response){
    console.log(response.data.daily)
+// setForecastData(response.data.daily)
+
+   setForecastData({
+   wind: response.data.daily[0].wind.speed,
+   date:  new Date(response.data.daily[0].time * 1000),
+  
+   temperatureMax: Math.round(response.data.daily[0].temperature.maximum),
+   temperatureMin: Math.round(response.data.daily[0].temperature.minimum),
+   
+   weatherImg: response.data.daily[0].condition.icon_url,
+   weatherIcon: response.data.daily[0].condition.icon
+   
+ });
    setLoaded(true);
     
-  setForecastData({
-  wind: response.data.daily[0].wind.speed,
-  date:  new Date(response.data.daily[0].time * 1000),
- 
-  temperatureMax: Math.round(response.data.daily[0].temperature.maximum),
-  temperatureMin: Math.round(response.data.daily[0].temperature.minimum),
-  
-  weatherImg: response.data.daily[0].condition.icon_url,
-  weatherIcon: response.data.daily[0].condition.icon
-  
-});
 
 }
      
     if(loaded){
+      console.log(forecastData)
       return (
       <div className="col">
         <div className="card">
           <div className="card-body">
             
-            <h5 className="card-title"><FormatDateForecast date = {forecastData.date} /> </h5>
+            {/* <h5 className="card-title">
+              <FormatDateForecast date = {forecastData.date} /> </h5> */}
             <p className="card-text">
     
             <span>
