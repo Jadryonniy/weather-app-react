@@ -5,20 +5,14 @@ import "./App.css";
 
 export default function NextDayForecast(props) {
   console.log(props.data.cityName)
-  
-  
-
-  const[forecastData, setForecastData] = useState({ready: false});
-  
+  let [loaded, setLoaded] = useState(false);
+  const[forecastData, setForecastData] = useState(null);
+ 
   function handleResponse(response){
+   console.log(response.data.daily)
+   setLoaded(true);
     
-    
-  console.log(response.data)
-    
-    
-    setForecastData({
-  ready:true,    
-  
+  setForecastData({
   wind: response.data.daily[0].wind.speed,
   date:  new Date(response.data.daily[0].time * 1000),
  
@@ -30,51 +24,43 @@ export default function NextDayForecast(props) {
   
 });
 
-
 }
-  
-  
-  
-  
-  // function searchForecast(){
-    const apiKey = "fb1a5abb4bafod018947tcd1dd70f5c3";
+     
+    if(loaded){
+      return (
+      <div className="col">
+        <div className="card">
+          <div className="card-body">
+            
+            <h5 className="card-title"><FormattedDate date = {forecastData.date} /> </h5>
+            <p className="card-text">
     
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.data.cityName}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-  
-  // }
-  
-  
-  // if(forecastData.ready){
-    return (
-    <div className="col">
-      <div className="card">
-        <div className="card-body">
-          
-          <h5 className="card-title"><FormattedDate date = {forecastData.date} /> </h5>
-          <p className="card-text">
-
-          <span>
-          <img src = {forecastData.weatherImg} alt = {forecastData.weatherIcon} /> 
-          </span> 
-
-
-            <span>{}</span> <br />
-            <span>{forecastData.temperatureMax}</span>/<span>{forecastData.temperatureMin}</span>
-            °C
-          </p>
-          <p className="card-text">
-            <span>Wind {forecastData.wind} m/s</span> 
-          </p>
+            <span>
+            <img src = {forecastData.weatherImg} alt = {forecastData.weatherIcon} /> 
+            </span> 
+    
+    
+              <span>{}</span> <br />
+              <span>{forecastData.temperatureMax}</span>/<span>{forecastData.temperatureMin}</span>
+              °C
+            </p>
+            <p className="card-text">
+              <span>Wind {forecastData.wind} m/s</span> 
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+    
+
+  }
+  else{
+
+  const apiKey = "fb1a5abb4bafod018947tcd1dd70f5c3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.data.cityName}&key=${apiKey}&units=metric`;
+axios.get(apiUrl).then(handleResponse);
+
+return null;
+
+  }
 }
-// else{
-//   searchForecast();   
- 
-//   return "Loading ...";
-  
-// }
-// }
