@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios"
-import FormattedDate from"./FormattedDate.js"
+import FormatDateForecast from"./FormatDateForecast.js"
 import "./App.css";
 
 export default function NextDayForecast(props) {
@@ -32,7 +32,7 @@ export default function NextDayForecast(props) {
         <div className="card">
           <div className="card-body">
             
-            <h5 className="card-title"><FormattedDate date = {forecastData.date} /> </h5>
+            <h5 className="card-title"><FormatDateForecast date = {forecastData.date} /> </h5>
             <p className="card-text">
     
             <span>
@@ -60,7 +60,7 @@ export default function NextDayForecast(props) {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.data.cityName}&key=${apiKey}&units=metric`;
 axios.get(apiUrl).then(handleResponse);
 
-return null;
+
 
   }
 }
