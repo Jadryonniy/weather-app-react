@@ -9,7 +9,7 @@ export default function MainForecast(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
-    console.log(response);
+    
     setWeatherData({
       ready: true,
       cityName: response.data.city,
@@ -20,6 +20,8 @@ export default function MainForecast(props) {
       description: response.data.condition.description,
       weatherImg: response.data.condition.icon_url,
       weatherIcon: response.data.condition.icon,
+      long: response.data.coordinates.longitude,
+      lat: response.data.coordinates.latitude,
     });
   }
 
@@ -39,6 +41,7 @@ export default function MainForecast(props) {
   }
 
   if (weatherData.ready) {
+    
     
     return (
       <div>
