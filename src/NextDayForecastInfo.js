@@ -1,8 +1,9 @@
 import React from "react";
-import FormatDateForecast from"./FormatDateForecast.js"
+// import FormatDateForecast from"./FormatDateForecast.js"
 
 
 export default function NextDayForecastInfo (props){
+    
 
     return(
         <div className="card">
