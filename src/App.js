@@ -21,7 +21,7 @@ export default function App() {
         >
           free app on github
         </a>
-        <span className="ms-2">coded by V.Koba</span>
+        <span className=" coder ms-2">coded by V.Koba</span>
       </div>
     </div>
   );

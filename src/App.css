@@ -59,10 +59,14 @@ h2 {
 }
 .autor,
 .git_link {
-  color: white;
-  margin-top: 300px;
-  font-size: medium;
-  font-weight: lighter;
+  color: rgb(10, 10, 10);
+  margin-top: 80px;
+  font-size: larger;
+  
+}
+.coder{
+  font-size: larger;
+  font-weight: 500;
 }
 .unit {
   position: relative;
