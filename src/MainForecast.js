@@ -46,7 +46,7 @@ export default function MainForecast(props) {
     return (
       <div>
         <form className="input-group" onSubmit={searchCity}>
-          <span className="input-group-text">Today in</span>
+          <span className="input-group-text d-none d-md-block d-lg-block">Today in</span>
           <input
             type="search"
             className="form-control"
