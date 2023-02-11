@@ -24,7 +24,7 @@ import WeatherTempConverter from "./WeatherTempConverter.js"
           <img src = {props.data.weatherImg} alt = {props.data.weatherIcon} /> 
           </span> 
           <span> <WeatherTempConverter celsius = {props.data.temperature} /> </span>
-          <span>{props.data.description}</span>
+          <span className ="d-none d-md-block d-lg-block">{props.data.description}</span>
            
            
          </h2>

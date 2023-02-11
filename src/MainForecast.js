@@ -60,12 +60,7 @@ export default function MainForecast(props) {
             className="btn btn-outline-primary "
             value="OK"
           />
-          {/* <input
-      type="submit"
-      className="btn btn-outline-secondary"
-      value="Your location"
-      
-    /> */}
+         
         </form>
 
         <WeatherInfo data={weatherData} />

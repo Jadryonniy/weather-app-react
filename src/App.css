@@ -79,3 +79,14 @@ h2 {
   color: rgb(52, 15, 185);
 }
 
+@media (max-width: 768px) {
+  body {
+    font-weight: 600;
+  
+}
+.input-group-text {
+  font-size: medium;
+  font-weight: 300;
+}
+
+}
