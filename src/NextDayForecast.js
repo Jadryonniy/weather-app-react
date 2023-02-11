@@ -1,34 +1,20 @@
 import React, {useState} from "react";
 import axios from "axios"
-// import NextDayForecastInfo from "./NextDayForecastInfo.js"
-import FormatDateForecast from"./FormatDateForecast.js"
+import NextDayForecastInfo from "./NextDayForecastInfo.js"
 import "./App.css";
 
 export default function NextDayForecast(props) {
  
   let [loaded, setLoaded] = useState(false);
-  const[forecastData, setForecastData] = useState(null);
+  let [forecastData, setForecastData] = useState(null);
  
   function handleResponse(response){
     console.log(response);
     
   setLoaded(true);
        
-  
+  setForecastData(response.data.daily)
 
-   setForecastData({
-    
-   wind: response.data.list[0].wind.speed,
-   date:  response.data.list[0].dt * 1000,
-  
-   temperatureMax: Math.round(response.data.list[0].main.temp_max),
-   temperatureMin: Math.round(response.data.list[0].main.temp_min),
-   
-   weatherDescription: response.data.list[0].weather[0].main,
-   weatherIcon: response.data.list[0].weather[0].icon,
-  
-   
- });
     
  console.log(response);
 }
@@ -36,28 +22,29 @@ export default function NextDayForecast(props) {
     if(loaded){
       
       return (
+        <div className="row">
       <div className="col">
-        <div className="card">
-          <div className="card-body">
-            
-            <h5 className="card-title">
-              <FormatDateForecast date = {forecastData.date} /> </h5>
-            <p className="card-text">
-    
-            <span>
-            <img src = {`http://openweathermap.org/img/wn/${forecastData.weatherIcon}@2x.png`} alt = {forecastData.weatherDescription} /> 
-            </span> 
-    
-    
-              <span>{}</span> <br />
-              <span>{forecastData.temperatureMax}</span>/<span>{forecastData.temperatureMin}</span>
-              °C
-            </p>
-            <p className="card-text">
-              <span>Wind {forecastData.wind} m/s</span> 
-            </p>
-          </div>
-        </div>
+        
+        <NextDayForecastInfo data = {forecastData[0]}/>;
+      </div>
+      <div className="col">
+        
+        <NextDayForecastInfo data = {forecastData[1]}/>;
+      </div>
+      <div className="col">
+        
+        <NextDayForecastInfo data = {forecastData[2]}/>;
+      </div>
+      <div className="col">
+        
+        <NextDayForecastInfo data = {forecastData[3]}/>;
+      </div>
+      <div className="col">
+        
+        <NextDayForecastInfo data = {forecastData[4]}/>;
+      </div>
+
+     
       </div>
     );
     
@@ -65,8 +52,8 @@ export default function NextDayForecast(props) {
   }
   else{
 
-  const apiKey = "30e7329b2cf5d973330cfcc405308ca0";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${props.data.lat}&lon=${props.data.long}&appid=${apiKey}&units=metric`;
+  const apiKey = "fb1a5abb4bafod018947tcd1dd70f5c3";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${props.data.long}&lat=${props.data.lat}&key=${apiKey}`;
 axios.get(apiUrl).then(handleResponse);
 
 
