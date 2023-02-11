@@ -23,27 +23,16 @@ export default function NextDayForecast(props) {
       
       return (
         <div className="row">
-      <div className="col">
+          {forecastData.map(function(dailyForecast, index){
+            if(index<5)
+            return(
+              <div className="col" key = {index}>
         
-        <NextDayForecastInfo data = {forecastData[0]}/>;
-      </div>
-      <div className="col">
-        
-        <NextDayForecastInfo data = {forecastData[1]}/>;
-      </div>
-      <div className="col">
-        
-        <NextDayForecastInfo data = {forecastData[2]}/>;
-      </div>
-      <div className="col">
-        
-        <NextDayForecastInfo data = {forecastData[3]}/>;
-      </div>
-      <div className="col">
-        
-        <NextDayForecastInfo data = {forecastData[4]}/>;
-      </div>
+              <NextDayForecastInfo data = {dailyForecast}/>
+            </div>
+            )
 
+          })}
      
       </div>
     );
