@@ -24,7 +24,8 @@ export default function NextDayForecast(props) {
       return (
         <div className="row">
           {forecastData.map(function(dailyForecast, index){
-            if(index<5)
+
+            if(index>0 && index<6)
             return(
               <div className="col" key = {index}>
         
