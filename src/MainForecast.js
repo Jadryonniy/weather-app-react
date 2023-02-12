@@ -40,6 +40,21 @@ export default function MainForecast(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
+function currentPosition(event){
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getCurrentData);
+}
+
+
+
+    function getCurrentData(position){
+        let apiKey = "fb1a5abb4bafod018947tcd1dd70f5c3";
+        let apiURL = "https://api.shecodes.io/weather/v1/current?";
+        let latitude = position.coords.latitude;
+        let longtitude = position.coords.longitude;
+        axios.get(`${apiURL}lat=${latitude}&lon=${longtitude}&key=${apiKey}&units=metric`).then(handleResponse);}
+
+
   if (weatherData.ready) {
     
     
@@ -59,6 +74,13 @@ export default function MainForecast(props) {
             type="submit"
             className="btn btn-outline-primary "
             value="OK"
+          />
+           <input
+           
+            type="submit"
+            className="btn btn-outline-secondary"
+            value="Your location"
+            onClick={currentPosition}
           />
          
         </form>
